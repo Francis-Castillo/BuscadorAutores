@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RetrofitBuscadorAutores</string>
+    <string name="search_hint">Introduce el autor</string>
+</resources>

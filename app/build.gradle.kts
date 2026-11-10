@@ -11,6 +11,11 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     defaultConfig {
         applicationId = "com.dam.retrofitbuscadorautores"
         minSdk = 25

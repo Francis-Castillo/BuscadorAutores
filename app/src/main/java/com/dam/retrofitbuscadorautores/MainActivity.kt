@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dam.retrofitbuscadorautores.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var recy: RecyclerView
     val adaptadorRecyclerView = AdaptadorAutores()
     private lateinit var buscador: SearchView
+
+
+    //viewBinding
+    private lateinit var binding : ActivityMainBinding
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,8 +50,12 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ActivityMainBinding.inflate(layoutInflater) // Opcional para bindear automaticamente (esta linea y la siguiente)
+        setContentView(binding.root)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)  // al hacer el binding antes, esta línea se queda obsoleta, pero de momento seguir usando la forma tradicional
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -55,6 +64,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         //menu
         setSupportActionBar(findViewById(R.id.toolbarPrincipal))
+
+        binding
 
         //bindeo
         buscador=findViewById(R.id.svAutores)

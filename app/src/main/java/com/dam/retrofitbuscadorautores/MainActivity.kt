@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_misfavoritos -> {
             val intent = Intent(this, FavoritosActivity::class.java)
+            // Intent es como un mensajero, se indica de donde se sale (this) y a que pantalla se va (FavoritosActivity).
+            // También por ejemplo con intent.putExtra("clave", valor) tambiem se envian datos de una pantallla a otra
             startActivity(intent)
             true
         }

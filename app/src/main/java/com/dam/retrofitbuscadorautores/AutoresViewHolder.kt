@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 
-class AutoresViewHolder (view: View): RecyclerView.ViewHolder(view) {
+class AutoresViewHolder (view: View): RecyclerView.ViewHolder(view) { // ViewHolder -> "molde visual"
     var nombre: TextView
     var toolbarFavorito : Toolbar
     init{

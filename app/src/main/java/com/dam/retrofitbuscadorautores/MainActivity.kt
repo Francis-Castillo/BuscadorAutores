@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         //bindeo
         buscador=findViewById(R.id.svAutores)
         recy = findViewById(R.id.rvAutores)
-        recy.layoutManager = LinearLayoutManager(
+        recy.layoutManager = LinearLayoutManager( // esta linea indica como se debe ordenar y colocar visualmente los elementos de la lista en la pantalla
             applicationContext,
             LinearLayoutManager.VERTICAL, false
         )
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         }
 
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(this.buscador.windowToken, 0)
+        imm.hideSoftInputFromWindow(this.buscador.windowToken, 0) // esconde el teclado al pulsar buscar
         return true
     }
 }

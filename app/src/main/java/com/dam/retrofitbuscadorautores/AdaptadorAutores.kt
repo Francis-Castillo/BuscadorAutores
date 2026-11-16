@@ -23,11 +23,11 @@ class AdaptadorAutores : RecyclerView.Adapter<AutoresViewHolder>(){
             parent, false))
     }
     override fun getItemCount(): Int = aut.size
-    override fun onBindViewHolder(holder: AutoresViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AutoresViewHolder, position: Int) { // se encarga de rellenar cad tarjeta de la lista con sus datos reales y configurar que ocurre cuando el usuario interactua con ella
         val item = aut[position]
         holder.nombre.text = item.name
-        holder.toolbarFavorito.setOnMenuItemClickListener{
-            when(it.itemId){
+        holder.toolbarFavorito.setOnMenuItemClickListener{ // vigila si se pulsa la acción dentro de esa actividad (en este caso favorito)
+            when(it.itemId){ // it representa el item pulsado
                 R.id.action_favoritos->{
                     listener.onSaveAutor(item)
                     true

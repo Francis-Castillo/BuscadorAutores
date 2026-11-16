@@ -25,7 +25,7 @@ class AdaptadorMisFavs : RecyclerView.Adapter<FavoritosViewHolder>(){
     override fun onBindViewHolder(holder: FavoritosViewHolder, position: Int) {
         val item = favs[position]
         holder.nombre.text = item.name
-        holder.toolbarFavorito.setOnMenuItemClickListener{
+        holder.toolbarFavorito.setOnMenuItemClickListener{ // vigila si se pulsa la acción dentro de esa actividad (en este caso eliminar)
             when(it.itemId){
                 R.id.action_eliminar->{
                     listener.onDeleteAutor(item)
@@ -39,7 +39,7 @@ class AdaptadorMisFavs : RecyclerView.Adapter<FavoritosViewHolder>(){
 
     }
 
-    fun changelist(autores: List<Autores>) {
+    fun changelist(autores: List<Autores>) { // actualiza datos internos (que le llegan desde el notifyDataSetChanged del mainActivity)del adaptador con una lista nueva
         favs=autores
     }
 }
